@@ -25,6 +25,9 @@ public class Base64Service {
 
     Logger log = LoggerFactory.getLogger(Base64Service.class);
 
+    @Value( "${app.u}" )
+    private String u;
+
     @RequestMapping("/base64encode")
     public String encodeBase64(HttpServletRequest request, @RequestParam(value="v", defaultValue="") String v) {
         if (isEmpty(v)) { return EMPTY; }
@@ -42,6 +45,7 @@ public class Base64Service {
     @RequestMapping("/ping")
     public String ping(HttpServletRequest request) {
         log.info("request address: " + request.getRemoteAddr());
+        log.info("user: " + u);
         return DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT).format(new Date());
     }
 
