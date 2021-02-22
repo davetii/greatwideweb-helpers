@@ -46,6 +46,7 @@ public class Base64Service {
     public String ping(HttpServletRequest request) {
         log.info("request address: " + request.getRemoteAddr());
         log.info("user: " + u);
+        log.info("test for change");
         return DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT).format(new Date());
     }
 
